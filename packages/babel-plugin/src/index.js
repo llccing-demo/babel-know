@@ -6,7 +6,8 @@ const visitor = {
   //   // 打印两次，因为向下遍历进入，向上遍历退出。
   //   console.log(path.node.name)
   // }
-  // 输出结果，见 src/output/double.js
+  // 输出结果，见 src/output/name.js
+  // 此外 node.js(console.log(path.node)) path.js (console.log(path)) 为对应的输出。
 
   // Identifier: {
   //   enter(path){
