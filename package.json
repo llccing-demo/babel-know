@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/llccing-demo/babel-know/issues"
   },
-  "homepage": "https://github.com/llccing-demo/babel-know#readme"
+  "homepage": "https://github.com/llccing-demo/babel-know#readme",
+  "devDependencies": {
+    "lerna": "^3.20.2"
+  }
 }
