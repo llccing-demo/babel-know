@@ -60,6 +60,34 @@ src/index.js未添加polyfill是4kb，增加@/babel-polyfill后变为__428__kb�
 没有增加`@babel/polyfill`的编译文件路径为`dist/main-babel.js`
 编译完的文件路径为`dist/main-babel-polyfill.js`
 
+__webpack分包__
+
+修改webpack.config.js文件为
+```js
+module.exports = {
+  mode: 'development',
+  entry: {
+    main: './src/index.js',
+    polyfill: ['@babel/polyfill'],
+  }, 
+  output: {
+    filename: '[name].bundle.js',
+    path: path.resolve(__dirname, 'dist')
+  },
+  module: {
+    rules: [
+      {
+        test: /.js$/,
+        exclude: /(node_modules)/,
+        loader: 'babel-loader'
+      }
+    ],
+  }
+}
+```
+即可实现拆包，拆包后的文件为`dist/main.bundle.js`和`dist/polyfill.bundle.js`。
+
+
 ##### 如果是第三方类库
 
 `@babel/preset-env+@babel/plugin-transform-runtime+@babel/runtime-corejs2`（或者不做转码处理，提醒使用者自己做好兼容处理即可）

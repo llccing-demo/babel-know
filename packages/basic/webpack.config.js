@@ -1,10 +1,14 @@
 const path = require('path')
+const webpack = require('webpack')
 
 module.exports = {
   mode: 'development',
-  entry: './src/index.js',
+  entry: {
+    main: './src/index.js',
+    polyfill: ['@babel/polyfill'],
+  }, 
   output: {
-    filename: 'main-babel-polyfill.js',
+    filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist')
   },
   module: {
@@ -14,6 +18,6 @@ module.exports = {
         exclude: /(node_modules)/,
         loader: 'babel-loader'
       }
-    ]
+    ],
   }
 }
