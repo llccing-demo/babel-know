@@ -87,6 +87,9 @@ module.exports = {
 ```
 即可实现拆包，拆包后的文件为`dist/main.bundle.js`和`dist/polyfill.bundle.js`。
 
+参考的文档
+- [https://juejin.im/post/5c8339ca51882501351d4b82](https://juejin.im/post/5c8339ca51882501351d4b82) 详解webpack code splitting
+- [https://juejin.im/post/5b304f1f51882574c72f19b0](https://juejin.im/post/5b304f1f51882574c72f19b0) webpack 4 配置最佳实践
 
 ##### 如果是第三方类库
 
