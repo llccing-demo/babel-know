@@ -122,3 +122,55 @@ npm install @babel/runtime-corejs2
    ]
  }
 ```
+
+
+### 升级到core-js3
+
+.babelrc配置
+```js
+{
+  // 预设
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        // 对于ES6的模块文件不做转化，以便使用tree shaking、sideEffects等
+        "modules": false,
+        "useBuiltIns": "entry",
+        // 新版本的@babel/polyfill包函core.js@2和core.js@3，所以需要声明版本，
+        // 否则webpack运行时会报warnning，此处暂时使用core.js@2版本（后文会调整为3）
+        "corejs": {
+          "version": 3
+        }
+      }
+    ]
+  ],
+  // 插件
+  "plugins": []
+}
+```
+
+webpack 配置
+```js
+module.exports = {
+  mode: 'development',
+  entry: {
+    main: './src/index.js',
+  }, 
+  output: {
+    filename: 'core-js@3/[name].bundle.js',
+    path: path.resolve(__dirname, 'dist')
+  },
+  module: {
+    rules: [
+      {
+        test: /.js$/,
+        exclude: /(node_modules)/,
+        loader: 'babel-loader'
+      }
+    ],
+  }
+}
+```
+
+构建后的资源在`dist/core-js@3/`目录下，不过bundle到了680kb，异常的大。

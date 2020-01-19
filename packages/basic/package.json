@@ -22,7 +22,7 @@
   },
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1",
-    "build": "webpack"
+    "build": "webpack --display-modules"
   },
   "bugs": {
     "url": "https://github.com/llccing-demo/babel-know/issues"
@@ -36,7 +36,9 @@
     "webpack-cli": "^3.3.10"
   },
   "dependencies": {
-    "lodash": "^4.17.15"
+    "core-js": "^3.6.4",
+    "lodash": "^4.17.15",
+    "regenerator-runtime": "^0.13.3"
   },
   "browserslist": [
     "> 1%",

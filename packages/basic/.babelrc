@@ -9,7 +9,9 @@
         "useBuiltIns": "entry",
         // 新版本的@babel/polyfill包函core.js@2和core.js@3，所以需要声明版本，
         // 否则webpack运行时会报warnning，此处暂时使用core.js@2版本（后文会调整为3）
-        "corejs": 2
+        "corejs": {
+          "version": 3
+        }
       }
     ]
   ],
